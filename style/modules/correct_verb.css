@@ -1,0 +1,144 @@
+.card-container {
+    display: flex; 
+    flex: 1;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'PT Serif', serif;  
+    font-size: 1.2em;
+    animation: moveIn .3s ease-out;
+    @mixin atSmall {
+        margin-bottom: 5px;
+    }
+}
+.card-content {
+    width: 600px;
+    margin-top: 80px;
+    padding: 30px 50px 20px 50px;
+    background-color: #fff;
+    border-radius: 5px;
+    font-size: 0.9em;
+    display: flex;
+    flex-direction: column;
+    color: #7f7f7f;
+    @mixin atSmall {
+        width: auto;
+        padding: 20px 0 20px 0;
+        margin-top: 20px;
+    }
+}
+.card-change {
+    width: 600px;
+    display: flex;
+    @mixin atSmall {
+        width: 100%;
+        justify-content: center;
+    }
+}
+.verb-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* color: #7f7f7f; */
+}
+.verb-field {
+    width: 400px;
+    @mixin atSmall {
+        width: auto;
+    }
+}
+.verb-pronoun {
+    text-align: center;
+    width: 80px;
+    margin-right: 20px;
+    @mixin atSmall {
+        margin-right: 0;
+    }
+}
+.verb-tense {
+    text-align: center;
+    @mixin atSmall {
+        margin-bottom: 20px;
+    }
+}
+.verb-form {
+    width: 100%;
+}
+.verb-inner-meaning {
+    font-size: 1.1em;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 13px;
+    span {
+        margin-left: 20px;
+    }
+}
+.input-field {
+    /* padding: 20px; */
+    /* color: #7f7f7f; */
+    padding-top: 20px;
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* justify-content: space-between; */
+    flex-wrap: wrap;
+    @mixin atSmall {
+        margin-right: 10px;
+    }
+}
+.input-verb {
+    text-align: center;
+    color: #7f7f7f;
+    /* padding: 10px; */
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 1.0em;
+    width: 100%;
+    outline: none;
+    @mixin atSmall {
+        margin-top: 0;
+    }
+}
+/* @media (max-width: 600px){
+    .input-verb {
+        margin: 0 auto;
+        margin-top: 15px;
+    }
+    .input-person {
+        width: 100%;
+    }
+} */
+.input-person {
+    min-width: 80px;
+    display: flex;
+    /* align-items: center; */
+    /* margin-top: 5px; */
+    justify-content: center;
+    margin-top: 10px;
+}
+.incorrect {
+    /* border: 1px solid red; */
+    border: none;
+    margin: 2px;
+    box-shadow: 0 0 1px 1px red;
+}
+.very-correct {
+    border: none;
+    margin: 2px;
+    box-shadow: 0 0 1px 1px #94ef94;
+    /* border: 1px solid #94ef94;  */
+    /* background: #94ef94; */
+}
+.verb-hint {
+    /* opacity: 0; */
+    color: black;
+     display: flex; 
+    flex-direction: row;
+    margin-top: 10px;
+}
+.verb-hint span {
+    width: 100%;
+    text-align: center;
+    font-size: 0.9em;
+    margin-right: 3px;
+}

@@ -1,0 +1,21 @@
+.refresh-icon {
+    cursor: pointer;
+    font-size: 1.1em;
+    display: flex;
+    justify-content: flex-end;
+    &:hover {
+        color: black;
+    }
+}
+@media (max-width: 600px){
+    input {
+        border: 1px solid black;
+    }
+    .refresh-icon {
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    .refresh-icon i {
+        padding: 5px;
+    }
+}

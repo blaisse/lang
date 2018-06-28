@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400|PT+Serif');
+@import url('https://fonts.googleapis.com/css?family=Zilla+Slab');
+@import url('https://fonts.googleapis.com/css?family=Lora');
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Barlow+Condensed');
+
+@import 'base/mixins';
+@import 'modules/app';
+@import 'modules/flashcards';
+@import 'modules/special_characters'; 
+@import 'modules/languages';
+@import 'modules/menu';
+@import 'modules/menu_right';
+@import 'modules/tenses';
+@import 'modules/correct_verb';
+@import 'modules/noun';
+@import 'modules/add_verb';
+@import 'modules/chat'; 
+@import 'modules/chat_icon';
+@import 'modules/plural'; 
+@import 'modules/sentence_block'; 
+@import 'modules/chat_full';  
+@import 'modules/panel.css';
+@import 'modules/tutorial.css';
+@import 'modules/user_flashcards';
+@import 'modules/validation';
+
+@import 'modules/animations/global';
+@import 'modules/loaders/loader';
+@import 'modules/push/push';
+@import 'modules/card/card';
+
+@import 'colors/backgrounds';
+@import 'colors/font-colors';
+/* @import 'Draft.css';  */
+
+* {
+    margin: 0; 
+    padding: 0;
+    font-family: 'Zilla Slab', serif;
+    outline: none;
+    box-sizing: border-box;
+}
+html {
+    height: 100%;
+}
+body {
+    height: 100%;
+}
+#root {
+    height: 100vh;
+}

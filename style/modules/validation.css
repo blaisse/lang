@@ -1,0 +1,12 @@
+.server-error {
+    text-align: center;
+    color: red;
+}
+.signup input {
+    padding: 5px;
+    margin: 10px;
+}
+.signup label {
+    display: flex;
+    align-items: center;
+}

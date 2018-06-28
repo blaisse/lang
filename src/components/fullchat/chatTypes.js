@@ -1,0 +1,13 @@
+export const CLEAR_UNREAD_FULL_CHAT = 'clear_unread_full_chat';
+export const SET_UNREAD_FULL_CHAT = 'set_unread_full_chat';
+export const OLD_NOTIFY_PM_FULL_CHAT = 'old_notify_pm_full_chat';
+export const NOTIFY_CLEAR_FULL_CHAT = 'notify_clear_full_chat';
+export const NOTIFY_PM_FULL_CHAT = 'notify_pm_full_chat';
+export const PRIVATE_CHANNEL_FULL_CHAT = 'private_chaneel_full_chat';
+export const CHAT_WITH_FULL_CHAT = 'chat_with_full_chat';
+export const OPEN_FULL_CHAT = 'open_full_chat';
+export const SET_FULL_CHAT = 'set_full_chat';
+export const SET_PRIVATE_MESSAGES = 'set_private_messages';
+export const SET_USER_LIST = 'set_user_list';
+export const SET_URL = 'set_url';
+export const SET_GLOBAL_MESSAGES = 'set_global_messages';

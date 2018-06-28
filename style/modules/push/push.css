@@ -1,0 +1,10 @@
+.push-container {
+    display: flex;
+    justify-content: center; 
+    flex: 1;
+    transition: transform 0.9s;
+    font-size: 1.1em;
+}
+.app-push {
+    transform: translateX(-100px);
+}

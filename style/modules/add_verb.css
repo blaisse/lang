@@ -1,0 +1,70 @@
+.add-verb-container {
+    display: flex;
+    align-items: center; 
+    flex-direction: column; 
+    padding-bottom: 70px;
+    @mixin atMedium {
+        padding-top: 20px;
+    }
+}
+.add-verb-click:hover {
+    color: #ff9e9e;
+}
+.add-verb-language {
+    margin-bottom: 20px;
+    display: flex;
+    div {
+        margin-left: 20px;
+    }
+}
+.add-verb-container form {
+     display: flex;
+     flex-direction: column; 
+     justify-content: center; 
+}
+.add-verb-container button {
+    padding-left: 20px;
+    padding-right: 20px; 
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 10px;
+    color: #666666;
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 0;
+} 
+.add-verb-input {
+    background: white;
+    margin-bottom: 8px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    /* align-items: center; */
+}
+.add-verb-input-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.add-verb-input input {
+    padding: 4px;
+    margin-left: 30px;
+}
+.add-verb-input label {
+    margin-top: 3px;
+}
+.same-tense {
+    color: lightcoral;
+    text-align: center;
+    margin-bottom: 8px;
+}
+.input-error-container {
+    text-align: center;
+}
+.input-error {
+    border: 1px solid lightcoral;
+}
+.input-error-text {
+    margin-top: 5px;
+    color: lightcoral;
+}

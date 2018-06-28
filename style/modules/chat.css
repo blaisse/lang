@@ -1,0 +1,90 @@
+.chat-container {
+    /* flex: 0.5; */
+    flex: 1;
+    display: flex;
+    flex-direction: row;  
+    background: white;
+    /* margin-right: 100px; */
+    &-right {
+        flex: 0.5;
+        display: flex;
+        flex-direction: column;
+        border-left: 1px solid #eaeaea;
+    }
+    &-left {
+        flex: 0.5;
+        display: flex;
+        flex-direction: row;
+        background: white;
+        color: black;
+        border-right: 1px solid #eaeaea;
+        &-rooms {
+            display: flex;
+            flex-direction: row;    
+            justify-content: center;  
+            margin: 10px;      
+        }
+        &-users {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+        }
+        &-private {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            border-left: 1px solid #eaeaea;
+        }
+    }
+    &-messages {
+        flex-grow: 1; 
+        background: white;
+        overflow-y: scroll;
+         &-single {
+             color: #262626;
+             padding: 5px;
+             border-bottom: 1px solid #eaeaea;
+             word-break: break-all;
+             &-user {
+                 color: #9bc1ff;
+                 font-size: 1.1em;
+                 margin-right: 5px;
+             }
+         } 
+    }
+}
+.chat-input {  
+    width: 100%;
+    padding: 10px;
+    bottom: 0; 
+    border: none;
+    border-top: 1px solid #eaeaea;
+}
+.chat-room {
+    padding: 10px;
+    color: black;
+    font-size: 1.2em;
+    &-joined {
+        color: tomato;
+    }
+}
+.chat-hide { 
+    /* opacity: 0; */
+     display: none !important; 
+}
+.chat-single-message-span {
+    /* color: red; */
+    /* white-space: pre-line; */
+    /* display: block; */
+    /* word-wrap: break-word; */
+}
+.sign-in-message {
+    font-size: 2em;
+    color: black;
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+    /* justify-content: center; */
+}
+ 

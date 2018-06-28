@@ -1,0 +1,21 @@
+@keyframes moveIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+/* 
+.move-in {
+    transition: .7s;
+} */
+
+@keyframes appear {
+    0% {
+        transform: translateX(-100px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}

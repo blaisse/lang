@@ -1,0 +1,67 @@
+.user-flashcard {
+    margin: 0 auto;
+    color: #afafaf;
+    overflow-wrap: break-word;
+    /* padding: 80px 150px 80px 150px; */
+    padding: 80px 0;
+    text-align: center;
+    width: 300px;
+    background-color: #fff;
+    border-radius: 4px;
+    /* border: 1px solid #fff; */
+    margin-top: 50px;
+    font-size: 1.3em;
+    &-desc {
+        font-size: 0.8em;
+    }
+}
+.user-flashcard-author {
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size: 0.9em;
+}
+.user-flashcard-title {
+    margin-top: 20px;
+    font-size: 1.2em;
+    text-align: center;
+}
+.user-flashcard-display {
+    padding-top: 30px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    &-content {
+        display: flex;
+        justify-content: center;
+        div {
+            font-family: 'Spectral SC', serif;
+            /* font-size: 0.9em; */
+        }
+    }
+}
+.user-flashcard-list {
+    padding-top: 30px;
+
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: center;
+    &-item {
+        margin-bottom: 15px;
+        display: flex;
+        a {
+            background-color: #fff;
+            border-radius: 4px;
+            padding: 10px 20px 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            color: #000;
+            &:hover {
+                color: #A39BA8;
+            }
+        }
+        
+    }
+}

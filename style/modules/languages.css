@@ -1,0 +1,91 @@
+.flags-h2 {
+    color: pink;
+}
+.flag-french {
+    height: 50vh;
+    width: 100vw;
+    
+    @mixin atMedium {
+        position: absolute;
+        left: 0;
+        width: 100vw;
+        height: 90vh;
+        clip-path: polygon(0 0, 100% 0, 0 100%);
+        /* animation: moveFrench 1s ease-out; */
+    }
+    @mixin atLarge {
+        height: 90vh;
+    } 
+}
+.flag-german {
+    height: 50vh;
+    width: 100vw;
+    
+    @mixin atMedium {
+        position: absolute;
+        left: 0;
+        width: 100vw;
+        height: 90vh;
+        bottom: 0;
+        clip-path: polygon(100% 0, 100% 100%, 0 100%);
+        /* animation: moveGerman 1s ease-out; */
+    }
+    @mixin atLarge {
+        height: 90vh;
+    }
+}
+.single-language {
+    margin-bottom: 20px;
+
+    a {
+        text-decoration: none;
+    }
+    img {   
+        /* width: 200px; */
+        /* height: 120px; */
+    }
+    @mixin atMedium {
+        /* margin-left: 30px; */
+        img {
+            /* width: 300px; */
+            /* height: 200px; */
+        }
+    }
+    &:hover {
+        /* opacity: 0.6; */
+    }
+}
+.flags-container {
+    backface-visibility: hidden;
+     display: flex; 
+     /* margin-top: 20px; */
+     justify-content: center; 
+     align-items: center;   
+     &-flags {
+         display: flex;
+         flex-direction: column;
+         @mixin atMedium{
+             flex-direction: row;
+         }
+     }
+    @mixin atMedium {
+        /* margin-top: 60px; */
+    }
+}
+
+@keyframes moveFrench {
+    0% {
+        transform: translateX(-1000px);
+    }
+    100%{
+        transform: translate(0);
+    }
+}
+@keyframes moveGerman {
+    0% {
+        transform: translateY(1000px);
+    }
+    100% {
+        transform: translate(0);
+    }
+}

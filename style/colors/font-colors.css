@@ -1,0 +1,12 @@
+.link-verb {
+    color: #9D858D !important;
+    border-bottom: 1px solid #9D858D;
+}
+.link-noun {
+    color: #A39BA8 !important;
+    border-bottom: 1px solid #A39BA8 ;
+} 
+.link-tenses {
+    color: #94849B !important;
+    border-bottom: 1px solid #94849B;
+}

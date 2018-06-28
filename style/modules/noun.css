@@ -1,0 +1,47 @@
+.noun-content {
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+    animation: moveIn .3s ease-out;
+}
+.noun-input-container {
+    padding-bottom: 15px;
+}
+.noun-form {
+    display: flex;
+    justify-content: center;
+    @mixin atSmall {
+        /* display: flex; */
+        /* flex-direction: column; */
+        margin-right: 5px;
+        margin-left: 5px;
+    }
+}
+.noun-form input {
+    padding: 5px;
+    outline: none;
+    &:not(:first-child) {
+        margin-left: 10px;
+    }
+}
+.noun-meaning {
+    text-align: center;
+    padding: 20px;
+}
+.article-input {
+    max-width: 100px;
+    @mixin atSmall {
+        max-width: 70px;
+    }
+}
+.hide-button {
+    display: none;
+    border: 1px solid #eaeaea;
+    background: #fff;
+    padding: 7px;
+    margin-left: 10px;
+    font-size: 0.8em;
+    color: #c7c7c7;
+}

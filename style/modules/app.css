@@ -1,0 +1,46 @@
+.app {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    @mixin atSmall {
+        height: auto;
+    }
+}
+
+.app-container {
+    font-size: 1.1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;   
+    transition: transform 0.9s;
+    @mixin atSmall {
+        display: block;
+    }
+    &-front {
+        h2 {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            /* font-family: 'Raleway', sans-serif; */
+            /* font-family: 'Barlow Condensed', sans-serif; */
+             font-weight: 300;
+            @mixin atMedium {
+                margin-top: 30px;
+            }
+        }
+        /* background: tomato; */
+        @mixin atMedium {
+            /* height: 800px; */
+            /* margin-top: -50px; */
+        }
+    }
+ }
+ 
+ .app-container h4 {
+     font-size: 1.1em;
+     font-weight: 300;
+     text-align: center;
+     @mixin atMedium {
+         margin-top: 40px;
+         margin-bottom: 20px;
+     }
+ }
