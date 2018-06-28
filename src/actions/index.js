@@ -19,10 +19,9 @@ export const EXPAND_CHAT = 'expand_chat';
 export const HIDE_CHAT = 'hide_chat';
 export const PRIVATE_CHAT = 'private_chat';
 
-// const ROOT_URL = 'https://safe-badlands-67690.herokuapp.com';
+// const ROOT_URL = 'http://localhost:3007';
+const ROOT_URL = process.env.REACT_APP_URL;
 
-const ROOT_URL = 'http://localhost:3007';
-// const ROOT_URL ='https://francais-api.azurewebsites.net';
 export function addPrivate(room, message){
 
 }
