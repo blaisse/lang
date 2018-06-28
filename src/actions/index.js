@@ -58,15 +58,18 @@ export const fetchPlural = () => (dispatch, getState) => {
 
 export const setCorrectAndFetch = type => async (dispatch, getState) => {
     //type => String: "verb", "noun"
-    let correct;
-    if(type === 'verb' || type === 'noun' || type === 'plural'){
-        correct = getState()[type].word;
-    } else if(type === 'sentence'){
-        correct = getState().sentenceBlock.id;
-    }
-    await axios.post(`${ROOT_URL}/setlastcorrect/${type}/${correct}`, {},  {
-        headers: { authorization: localStorage.getItem('token') }
-    });
+    const user = localStorage.getItem('username');
+    if(user){
+        let correct;
+        if(type === 'verb' || type === 'noun' || type === 'plural'){
+            correct = getState()[type].word;
+        } else if(type === 'sentence'){
+            correct = getState().sentenceBlock.id;
+        }
+        await axios.post(`${ROOT_URL}/setlastcorrect/${type}/${correct}`, {},  {
+            headers: { authorization: localStorage.getItem('token') }
+        });
+    } 
     //Choose which action to execute based on provided type
     switch(type){
         case 'verb':
