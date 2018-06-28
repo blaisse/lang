@@ -37,7 +37,7 @@
             /* background-color: rgb(232, 232, 232); */
             /* font-family: 'Didact Gothic', sans-serif; */
             @mixin atLarge {
-                height: 85vh;
+                height: 80vh;
             }
 
             &-single {
@@ -53,6 +53,7 @@
         }
 
         &-input {
+            /* height: 50px; */
             height: 5vh;
             width: 100%;
             background: #000;

@@ -40,7 +40,11 @@ class DisplayNoun extends Component {
             <div className="card-container bg-noun">
                 <div className="card-content">
                     <div className="noun-meaning">{this.props.noun.meaning}</div>
-                    <Compund sendInput={this.handleNoun} correct={this.state.correct} />
+                    <Compund 
+                        sendInput={this.handleNoun} 
+                        correct={this.state.correct} 
+                        article={this.props.noun.article} 
+                        noun={this.props.noun.word} />
                 </div>
             </div> 
         );

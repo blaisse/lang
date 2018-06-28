@@ -38,9 +38,12 @@ class CorrectVerb extends Component {
         this.props.resetVerb();
     }
     randomPronoun(){
-        const pronouns = this.props.pronouns[this.props.lang];
-        const pronoun = pronouns[Math.floor(Math.random()*pronouns.length)];
-        const picked = this.props.verb.tenses[0].conjugation[pronoun.word];
+        //This code needs help
+        const pronouns = this.props.pronouns['french'];//this.props.lang
+        const rand = Math.floor(Math.random()*pronouns.length);
+        let pronoun = pronouns[rand];
+        const picked = this.props.verb.tenses[0].conjugation[pronoun.word];//Doesn't work for German
+        if(this.props.lang === 'german') pronoun = this.props.pronouns['german'][rand];
         this.setState({ pronoun, picked });
     }
     displaySub(){
@@ -81,14 +84,12 @@ class CorrectVerb extends Component {
                     <span className="refresh-icon" onClick={this.handleRefresh}><i className="fal fa-redo"></i></span>
                     <span className="verb-inner-meaning">{this.props.verb.meaning}</span>
                     <div className={"input-field"}>
-                        {/* {this.displaySub()} */}
                         <Composed 
                             // character={this.state.character} 
                             // resetCharacter={this.resetCharacter} 
                             pronoun={this.state.pronoun}
                             picked={this.state.picked} 
                             onAnswerChange={this.inputAnswer.bind(this)} />
-                        {/* <SpecialCharacters handleClick={this.handleCharacterClick} /> */}
                     </div>  
                 </div>
             </div>
@@ -96,7 +97,7 @@ class CorrectVerb extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     return { 
         pronouns: state.data.pronouns.subject,
         selectedTenses: state.selectedTenses,

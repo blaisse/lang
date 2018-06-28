@@ -16,7 +16,7 @@
         top: 3.6vh;
     }
     @mixin atLarge {
-        top: 1.8vh;
+        /* top: 1.8vh; */
     }
 
     &::before {

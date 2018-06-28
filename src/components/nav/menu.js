@@ -16,7 +16,7 @@ const links2 = {
     plural: { link: '/plural', text: 'Plural', class: 'link-verb', default: '' },
     blocks: { link: '/blocks', text: 'Blocks', class: 'link-noun', default: '' },
     chat: { link: '/chat', text: 'Chat', class: 'active-link', default: '' },
-    panel: { link: '/panel', text: 'Panel', class: 'link-verb', default: 'panel-click' }
+    panel: { link: '/panel', text: 'Panel', class: 'link-verb', default: 'panel-click', auth: true }
 };
 
 class Menu extends Component {
@@ -57,6 +57,7 @@ class Menu extends Component {
     renderLinks(){
         return Object.keys(links2).map((key, i) => {
             const link = links2[key];
+            if(link.auth && !this.props.authenticated) return "";
             const css = (this.state.active === link.link ? link.class : '') + ' ' + link.default;
             return <Link key={i} to={link.link} onClick={this.setActive(link.link)} className={css}>{link.text}</Link>;
         });

@@ -253,7 +253,7 @@
 .special-characters-numbers div {
             margin: 0 5px 0 5px;
             padding: 2px;
-            padding-left: 20px; 
+            padding-left: 23px; 
             padding-right: 20px;
             /* display: flex; */
             /* justify-content: space-around; */
@@ -419,7 +419,7 @@
     }
 @media (min-width: 1800px){
 .menu-icon {
-        top: 1.8vh
+        /* top: 1.8vh; */
 }
     }
 .menu-icon::before {
@@ -636,7 +636,7 @@
     }
 @media (min-width: 1800px){
 .right-menu {
-        top: 6vh
+        /* top: 6vh; */
 }
     }
 .right-menu-links {
@@ -1407,7 +1407,7 @@
 /* font-family: 'Didact Gothic', sans-serif; */
 @media (min-width: 1800px){
 .chat-full-general-messages {
-                height: 85vh
+                height: 80vh
         }
     }
 /* background-color: rgb(232, 232, 232); */
@@ -1423,6 +1423,7 @@
                 }
 /* background: tomato; */
 .chat-full-general-input {
+            /* height: 50px; */
             height: 5vh;
             width: 100%;
             background: #000;

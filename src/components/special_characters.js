@@ -13,12 +13,12 @@ class SpecialCharacters extends Component {
                     <div onClick={() => this.props.handleClick("#u2")}><span id="u2">{String.fromCodePoint(228)}</span></div>
                     <div onClick={() => this.props.handleClick("#u3")}><span id="u3">{String.fromCodePoint(233)}</span></div>
                   </div>
-                  <div className="special-characters-numeric-verb">
-                    <div className="special-characters-numeric">1</div>
-                    <div className="special-characters-numeric">2</div>
-                    <div className="special-characters-numeric">3</div>
-                    <div className="special-characters-numeric">4</div>
-                    <div className="special-characters-numeric">5</div>
+                  <div className="special-characters-numbers">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                    <div>5</div>
                   </div>
                 </div>
             );
