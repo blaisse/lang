@@ -13,7 +13,6 @@ export function fetchWord(word, callback){
 }
 
 export function createVerb(values){
-    // console.log(values);
     const request = axios.post(`${ROOT_URL}/words`, values);
     return {
         type: CREATE_VERB,
@@ -23,7 +22,7 @@ export function createVerb(values){
 
 export function patchVerb(values){
     axios.patch(`${ROOT_URL}/word/${values.word}`, values).then(() => {
-        console.log('Patched successfully');
+        // console.log('Patched successfully');
     });
     return {
         type: PATCH_VERB,

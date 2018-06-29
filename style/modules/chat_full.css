@@ -65,6 +65,12 @@
                 height: 100%;
                 border: none;
                 border-top: 1px solid black;
+                @mixin atSmall {
+                    height: 40px;
+                    /* margin-top: 20px; */
+                    position: fixed;
+                    bottom: 0;
+                }
             }
         }
     }

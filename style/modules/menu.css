@@ -60,29 +60,38 @@
         transform: rotate(-45deg) scaleX(1) translateY(-8px) translateX(7px);
     }
 }
-
+.menu-mobile-button {
+    margin-top: 10px;
+    font-family: 'Spectral SC', serif;
+    margin-bottom: 10px;
+    padding: 5px 0 5px 0;
+    text-align: center;
+    @mixin atMedium {
+        display: none;
+    }
+}
 .menu-container {
     background: white;  
     width: 100%;
     display: flex;  
      flex-direction: column; 
-    /* width: 900px; */
-    /* justify-content: center; */
-    /* justify-content: flex-end; */
-    /* flex-wrap: wrap; */
-      /* align-items: center;   */
-    /* margin-bottom: 10px; */
     margin-top: 10px;
+    @mixin atSmall {
+        margin-top: 0;
+        padding-top: 10px;
+    }
     @mixin atMedium {
-        /* height: 40px; */
         height: 10vh;
         margin-top: 0;
          flex-direction: row; 
          /* border-bottom: 1px solid black;  */
-        
     }
     @mixin atLarge {
         height: 10vh;
+    }
+    &-group {
+        display: flex;
+        flex-direction: row;
     }
 }
 .menu-container a {
@@ -125,21 +134,27 @@
 }
 .menu-container-links {
     flex: 1.4; 
-    /* opacity: 0; */
-    display: flex; 
     flex-direction: column;
     justify-content: center;
+    display: none;
     align-items: center;  
     @mixin atMedium {
-        opacity: 1;
-        /* margin-left: 140px; */
+        display: flex; 
         flex-direction: row;
     }
-    /* width: 80%; */
+    &-show {
+        display: flex;
+        background-color: #fff;
+        position: fixed;
+        z-index: 20;
+        top: 16vh;
+        width: 100vw;
+        height: 70vh;
+    }
 }
 .menu-container-out {
     flex: 0.3;
-    display: flex;  
+    display: none;
     justify-content: flex-end;  
     align-items: center; 
      a {
@@ -149,6 +164,17 @@
     } 
     @mixin atMedium {
         margin-right: 40px;
+        display: flex;  
+    }
+    &-show {
+        top: 86vh;
+        width: 100vw;
+        display: flex;  
+        justify-content: center;
+        position: fixed;
+        bottom: 0;
+        background-color: #fff;
+        z-index: 20;
     }
 }
 .menu-container a:not(:first-child){

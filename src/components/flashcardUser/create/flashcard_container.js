@@ -20,6 +20,9 @@ class FlashcardContainer extends Component {
     componentWillUnmount(){
         document.querySelector('html').classList.remove('bg-verb');
     }
+    componentDidMount(){
+        document.querySelector('html').classList.add('bg-verb');
+    }
     componentDidUpdate(){
         // const div = document.querySelector('.app-container');flashcard-add
         const div = document.querySelector('.flashcard-add');

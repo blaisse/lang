@@ -4,7 +4,9 @@
     bottom: 0;
     color: white;
     text-decoration: none;
+    display: none;
     @mixin atMedium {
+        display: block;
         margin-right: 10px; 
         margin-bottom: 10px;
         background: #5b5b5b;

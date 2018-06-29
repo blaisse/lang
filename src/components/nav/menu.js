@@ -20,7 +20,7 @@ const links2 = {
 };
 
 class Menu extends Component {
-    state = { open: false, active: null };
+    state = { open: false, active: null, openMenu: false };
     componentWillMount(){
         this.setState({ active: window.location.pathname });
     }
@@ -45,15 +45,16 @@ class Menu extends Component {
         }
     }
     renderSign(){
-        if(this.props.authenticated) return <div className="menu-container-out"><Link to="/signout">Sign Out</Link></div>;
+        if(this.props.authenticated) return <div className={"menu-container-out " + (this.state.openMenu ? 'menu-container-out-show' : '')}><Link onClick={this.closeMobileMenu} to="/signout">Sign Out</Link></div>;
         return (
-            <div className="menu-container-out">
-                <Link to="signin" key="1">Sign In</Link>
-                <Link to="signup" key="2">Sign Up</Link>
+            <div className={"menu-container-out " + (this.state.openMenu ? 'menu-container-out-show' : '')}>
+                <Link onClick={this.closeMobileMenu} to="signin" key="1">Sign In</Link>
+                <Link onClick={this.closeMobileMenu} to="signup" key="2">Sign Up</Link>
             </div>
         );
     }
-    setActive = link => () => this.setState({ active: link });
+    setActive = link => () => this.setState({ active: link, openMenu: false });
+    closeMobileMenu = () => this.setState({ openMenu: false });
     renderLinks(){
         return Object.keys(links2).map((key, i) => {
             const link = links2[key];
@@ -62,6 +63,7 @@ class Menu extends Component {
             return <Link key={i} to={link.link} onClick={this.setActive(link.link)} className={css}>{link.text}</Link>;
         });
     }
+    openMenu = () => this.setState({ openMenu: !this.state.openMenu });
     render(){
         return (
             <div className="menu-container">
@@ -72,7 +74,8 @@ class Menu extends Component {
                         </strong>
                     </span>
                 </div>
-                <div className="menu-container-links">{this.renderLinks()}</div>
+                <div onClick={this.openMenu} className="menu-mobile-button">{(this.state.openMenu ? 'Hide Menu' : 'Show Menu')}</div>
+                <div className={"menu-container-links " + (this.state.openMenu ? 'menu-container-links-show' : '')}>{this.renderLinks()}</div>
                 {this.renderSign()}
                 <div className={"menu-icon " + (this.props.push ? 'menu-icon-close' : '')} onClick={this.handleClick}><div className="menu-icon-middle"></div></div>
                 <RightMenu open={this.state.open} closeMenu={this.closeMenu}/>

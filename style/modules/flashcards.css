@@ -37,6 +37,9 @@
         padding: 5px;
         border: 1px solid #ededed;
         /* animation: moveIn 1s ease-out; */
+        @mixin atSmall {
+            margin-left: 0;
+        }
         &-correct {
             border-color: rgb(85, 232, 98);
             /* border-color: rgba(194, 255, 186, 1); */
@@ -75,6 +78,10 @@
     margin: 20px;
     text-align: center;
     word-wrap: break-word;
+    @mixin atSmall {
+        margin: 0;
+        margin-top: 10px;
+    }
 }
 .flashcard-add {
     padding-top: 30px;
@@ -94,6 +101,9 @@
     margin-bottom: 10px;
     &:hover {
         background: #efefef;
+    }
+    @mixin atSmall {
+        margin-top: 10px;
     }
 }
 .flashcard-add-error {

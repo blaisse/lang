@@ -48,9 +48,8 @@ class App extends Component {
       let c = document.querySelector('.chat-click');
       c.click();
     }
-    if(event.keyCode === 113){
+    if(event.keyCode === 113 && localStorage.getItem('token')){
       document.querySelector('.panel-click').click();
-      // window.location.href = "panel"
     }
   }
   focusDiv = () => {

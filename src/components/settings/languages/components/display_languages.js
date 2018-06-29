@@ -20,13 +20,13 @@ class DisplayLanguages extends Component {
         if(item === 'french'){
             return (
                 <div>
-                    <img className="flag-french" src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/1280px-Flag_of_France.svg.png" alt=""/>
+                    <img className="flag-french" src={require('./img/french.png')} alt="French flag" />
                 </div>
             );
         } else {
             return (
                 <div>
-                    <img className="flag-german" src="https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/1280px-Flag_of_Germany.svg.png" alt=""/>
+                    <img className="flag-german" src={require('./img/german.png')} alt="German flag" />
                 </div>
             );
         }

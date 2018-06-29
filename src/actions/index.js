@@ -19,18 +19,7 @@ export const EXPAND_CHAT = 'expand_chat';
 export const HIDE_CHAT = 'hide_chat';
 export const PRIVATE_CHAT = 'private_chat';
 
-// const ROOT_URL = 'http://localhost:3007';
 const ROOT_URL = process.env.REACT_APP_URL;
-
-export function addPrivate(room, message){
-
-}
-
-export function expandChat(){
-    return {
-        type: EXPAND_CHAT
-    };
-}
 
 export const fetchNoun = () => async (dispatch, getState) => {
     const { lang } = getState();
@@ -119,18 +108,12 @@ export function hideChat(){
         type: HIDE_CHAT
     };
 }
-
-
-
 export function resetVerb(){
     return {
         type: RESET_VERB,
         payload: null
     };
 }
-
-
-
 export function pushContent(state){
     return {
         type: PUSH_CONTENT,
@@ -138,7 +121,6 @@ export function pushContent(state){
     };
 }
 //NOUN
-
 export function addNoun(data){
     const request = axios.post(`${ROOT_URL}/noun`, data);
     return {
@@ -160,11 +142,7 @@ export function getNoun(name){
     };
 }
 export function saveFlashcardSet(data, callback){
-    // console.log('data', data, owner, title);
-    // console.log('callback', callback);
-    // console.log('c2', callback());
     const request = axios.post(`${ROOT_URL}/savecard`, {data: data.ar, owner: data.owner, title: data.title}).then(() => callback());
-    console.log('rr', request);
     return {
         type: SAVE_FLASHCARD,
         payload: request
@@ -188,7 +166,6 @@ export function fetchUserFlashcards(user){
         });
     }
 }
-
 export function fetchSingleFlashcard(id){
     const request = axios.get(`${ROOT_URL}/getsinglecard/${id}`);
     return {
@@ -196,19 +173,25 @@ export function fetchSingleFlashcard(id){
         payload: request
     };
 }
-
-
 export function clearSentenceBlock(){
     return {
         type: CLEAR_SENTENCE_BLOCK,
         payload: {}
     };
 }
-
 export function saveSentence(values){
     const request = axios.post(`${ROOT_URL}/savesentence`, {values});
     return {
         type: "saveSentence",
         payload: request
+    };
+}
+export function addPrivate(room, message){
+
+}
+
+export function expandChat(){
+    return {
+        type: EXPAND_CHAT
     };
 }
