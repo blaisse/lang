@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-
 class RightMenu extends Component {
     renderLinks(){
         if(this.props.authenticated){
@@ -13,9 +12,8 @@ class RightMenu extends Component {
                 <Link onClick={() => this.props.closeMenu()} to="/createflashcard" key="4">Create Flashcard Set</Link>, 
                 <Link onClick={() => this.props.closeMenu()} to="/showflashcards" key="5">Show Flashcards</Link>
             ];
-        } else {
-            return <div>Sign in to see the content</div>;
         }
+        return <div>Sign in to see the content</div>;
     }
     render(){
         return (
@@ -24,7 +22,6 @@ class RightMenu extends Component {
                     <p>Use ESC to open/close menu</p>
                      {this.renderLinks()}    
                 </div>
-                   {/* <img src="https://i.giphy.com/media/ntmBgj2X9FLGM/giphy.webp" alt=""/>   */}
             </div>
         );
     }

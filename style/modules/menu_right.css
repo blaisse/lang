@@ -3,11 +3,9 @@
     /* color: #adadad; */
     color: #d1d1d1;
     z-index: 30;
-    /* z-index: -1; */
-    /* display: none; */
     position: fixed;
-    /* top: 41px; */
-    top: 9vh;
+    /* top: 9vh; */
+    top: 70px;
     @mixin atMedium {
         top: 10vh;
         width: 15vw;

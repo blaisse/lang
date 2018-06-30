@@ -40,10 +40,6 @@
     a {
         text-decoration: none;
     }
-    img {   
-        /* width: 200px; */
-        /* height: 120px; */
-    }
     @mixin atMedium {
         /* margin-left: 30px; */
         img {
@@ -57,8 +53,7 @@
 }
 .flags-container {
     backface-visibility: hidden;
-     display: flex; 
-     /* margin-top: 20px; */
+     display: block; 
      justify-content: center; 
      align-items: center;   
      &-flags {
@@ -68,9 +63,6 @@
              flex-direction: row;
          }
      }
-    @mixin atMedium {
-        /* margin-top: 60px; */
-    }
 }
 
 @keyframes moveFrench {
