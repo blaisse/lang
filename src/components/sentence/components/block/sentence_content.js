@@ -48,7 +48,7 @@ class SentenceContent extends Component {
             }
         });
     }
-    unsetAnswer = (index) => {
+    unsetAnswer = index => {
         const blocks = this.state.blocks;
         blocks[index].set = false;
         this.setState({ blocks, answer: this.state.answer.filter(item => item.index !== index) });

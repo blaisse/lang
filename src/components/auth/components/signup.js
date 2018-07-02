@@ -36,7 +36,7 @@ class SignUp extends Component {
         return (
             <div className="add-verb-container">
                 <form onSubmit={handleSubmit(this.handleForm.bind(this))}>
-                    <Field type="text" label="Email" name="email" component={this.renderField} />
+                    <Field type="text" label="Username" name="email" component={this.renderField} />
                     <Field type="password" label="Password" name="password" component={this.renderField} />
                     <Field type="password" label="Re password" name="repassword" component={this.renderField} />
                     {this.renderError()}
@@ -50,7 +50,7 @@ class SignUp extends Component {
 function validate(values){
     const errors = {};
 
-    if(!values.email) errors.email = 'Enter an email';
+    if(!values.email) errors.email = 'Enter a username';
     if(!values.password) errors.password = 'Enter a password';
     if(!values.repassword) errors.repassword = 'Enter password again';
 

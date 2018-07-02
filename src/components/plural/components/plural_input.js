@@ -33,7 +33,7 @@ class PluralInput extends Component {
                 this.props.handleCorrect();
             });
         } else {
-            this.setState({ ...this.state, incorrect: true, value: "" });
+            this.setState({ ...this.state, incorrect: true, value: '', placeholder: '' });
             setTimeout(() => {
                 this.setState({ incorrect: false });
             }, 300);
@@ -48,10 +48,11 @@ class PluralInput extends Component {
         // const v = event.target.value;
         // this.setState({ value: v });
         const input = this.props.handleSpecialCharacters(event.target.value);
-        this.setState({ value: input });
+        this.setState({ value: input, placeholder: '' });
     }
     handleKeys(e){
         if(e.keyCode === 39){
+            if(this.state.placeholder) return this.setState({ placeholder: '' });
             this.setState({ ...this.state, value: "", placeholder: this.full });
         }
     }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink, withRouter } from 'react-router-dom';
 import RightMenu from './right_menu';
 import { connect } from 'react-redux';
 import { pushContent } from './../../actions';
@@ -20,10 +20,7 @@ const links2 = {
 };
 
 class Menu extends Component {
-    state = { open: false, active: null, openMenu: false };
-    componentWillMount(){
-        this.setState({ active: window.location.pathname });
-    }
+    state = { open: false, openMenu: false };
     //Close menu on item click, it's needed on mobile, not sure whether it should be kept on desktop
     closeMenu = () => this.setState({ open: false }, () => this.props.pushContent(this.state.open));
     cancelContentPush(){
@@ -48,19 +45,19 @@ class Menu extends Component {
         if(this.props.authenticated) return <div className={"menu-container-out " + (this.state.openMenu ? 'menu-container-out-show' : '')}><Link onClick={this.closeMobileMenu} to="/signout">Sign Out</Link></div>;
         return (
             <div className={"menu-container-out " + (this.state.openMenu ? 'menu-container-out-show' : '')}>
-                <Link onClick={this.closeMobileMenu} to="signin" key="1">Sign In</Link>
-                <Link onClick={this.closeMobileMenu} to="signup" key="2">Sign Up</Link>
+                <NavLink activeClassName="active-link" onClick={this.closeMobileMenu} to="/signin" key="1">Sign In</NavLink>
+                <NavLink activeClassName="active-link" onClick={this.closeMobileMenu} to="/signup" key="2">Sign Up</NavLink>
             </div>
         );
     }
-    setActive = link => () => this.setState({ active: link, openMenu: false });
+    setActive = () => this.setState({ openMenu: false });
     closeMobileMenu = () => this.setState({ openMenu: false });
     renderLinks(){
-        return Object.keys(links2).map((key, i) => {
+        return Object.keys(links2).map((key, i) => { 
             const link = links2[key];
             if(link.auth && !this.props.authenticated) return "";
-            const css = (this.state.active === link.link ? link.class : '') + ' ' + link.default;
-            return <Link key={i} to={link.link} onClick={this.setActive(link.link)} className={css}>{link.text}</Link>;
+            // const css = (this.state.active === link.link ? link.class : '') + ' ' + link.default;//onClick={this.setActive(link.link)}
+            return <NavLink exact to={link.link} activeClassName={link.class} className={link.default} onClick={this.setActive} key={i}>{link.text}</NavLink>;
         });
     }
     openMenu = () => this.setState({ openMenu: !this.state.openMenu });
@@ -84,7 +81,7 @@ class Menu extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     return { 
         push: state.pushContent,
         authenticated: state.auth.authenticated,
@@ -92,8 +89,8 @@ const mapStateToProps = (state) => {
     };
 }
 
-export default connect(mapStateToProps, { pushContent, setPrivateMessages, fullChatConnected,
+export default withRouter(connect(mapStateToProps, { pushContent, setPrivateMessages, fullChatConnected,
     fullChatNotificationClear,
     fullChatOldNotification,
     fullChatNotification
-})(Menu);
+})(Menu));

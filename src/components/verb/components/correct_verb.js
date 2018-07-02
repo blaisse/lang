@@ -91,6 +91,7 @@ class CorrectVerb extends Component {
                             picked={this.state.picked} 
                             onAnswerChange={this.inputAnswer.bind(this)} />
                     </div>  
+                    <div className="hint-plural">Press the right keyboard arrow to see the answer</div>
                 </div>
             </div>
         );  

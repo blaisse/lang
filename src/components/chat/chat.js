@@ -47,9 +47,9 @@ class Chat extends Component {
         // }
         if(this.props.url === 'chat') return;
         if(!this.props.authenticated) {
-            return <Link className={"chat-click chat-icon"} to="/signin">Sign In To Chat (F1)</Link>;
+            return <Link className={"chat-click chat-icon"} to="/signin">Sign In To Chat (F2)</Link>;
         }
-        return <Link className={"chat-click chat-icon"} to="/chat">Chat (F1)</Link>;
+        return <Link className={"chat-click chat-icon"} to="/chat">Chat (F2)</Link>;
         // if(!this.props.authenticated && !this.props.expanded){
         //     return <Link className={"chat-click chat-icon"}>Sign In To Chat</Link>;
         // } else if(!this.props.expanded && !this.state.mounted){//both false, chat was never mounted

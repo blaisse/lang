@@ -39,17 +39,18 @@ import Panel from './components/panel/Panel';
 import HandleSpecial from './components/hoc_special';
 
 class App extends Component {
-  handleKey = (event) => {
-      if(event.keyCode === 27){
-        let x = document.querySelector('.menu-icon');
-        x.click();
+  handleKey = event => {
+    if(event.keyCode === 27){
+      const menu = document.querySelector('.menu-icon');
+      if(menu) menu.click();
     }
-    if(event.keyCode === 112){
-      let c = document.querySelector('.chat-click');
-      c.click();
+    if(event.keyCode === 113){
+      const chat = document.querySelector('.chat-click');
+      if(chat) chat.click();
     }
-    if(event.keyCode === 113 && localStorage.getItem('token')){
-      document.querySelector('.panel-click').click();
+    if(event.keyCode === 115 && localStorage.getItem('token')){
+      const panel = document.querySelector('.panel-click');
+      if(panel) panel.click();
     }
   }
   focusDiv = () => {
@@ -92,7 +93,7 @@ class App extends Component {
   }
 }
 
-const stateMap = (state) => {
+const stateMap = state => {
   return {
     push: state.pushContent
   };

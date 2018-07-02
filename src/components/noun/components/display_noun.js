@@ -45,6 +45,7 @@ class DisplayNoun extends Component {
                         correct={this.state.correct} 
                         article={this.props.noun.article} 
                         noun={this.props.noun.word} />
+                    <div className="hint-plural">Press the right keyboard arrow to see the answer</div>
                 </div>
             </div> 
         );

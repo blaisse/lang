@@ -35,7 +35,7 @@ class DisplayTimes extends Component {
     }
     handleLink(){
         if(this.state.tense.length === 0){
-            return <p className="tenses-select-more">Please select at least one tense </p>;
+            return <p className="tenses-select-more">Select at least one tense </p>;
         } else {
             return (
                 <div className="practice-link" onClick={() => this.props.selectTense(this.state.tense)}>

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchFlashcard, clearFlashcard } from './../flashcardActions';
 import Flashcard from './flashcard';
+import SpecialCharacters from '../../special_characters';
 
 class FlashcardsGrid extends Component {
     constructor(props){
@@ -91,8 +92,8 @@ class FlashcardsGrid extends Component {
             return <div className="loader"></div>;
         }
     }
+    handleClick = () => {};
     render(){
-        // console.log('?', this.props.flashcards);
         return (
             <div className="flashcards">
                 {this.displayLoader()}
@@ -101,6 +102,7 @@ class FlashcardsGrid extends Component {
                     {this.displayFlashcards()} 
                     {/* {this.displayMore()}     */}
                 </div>
+                <SpecialCharacters handleClick={this.handleClick} />
                 {/* {this.handleLoading()} */}
                 {/* <p onClick={this.handleLoadClick.bind(this)}>Load more</p> */}
             </div>

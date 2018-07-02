@@ -34,7 +34,6 @@ class DisplayLanguages extends Component {
     render(){
         return (
             <div className="app-container app-container-front">
-                {/* <h2 className="flags-header">Select a language to learn</h2> */}
                 <div className="flags-container">
                     <div className="flags-container-flags">{this.renderLanguages()}</div>
                 </div>

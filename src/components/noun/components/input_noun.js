@@ -26,23 +26,23 @@ class InputNoun extends Component {
         this.nameInput.focus();
         this.setState({ value: "", article: "" });
     }
-    handleChange = (event) => {
+    handleChange = event => {
         const input = this.props.handleSpecialCharacters(event.target.value);
         this.setState({ value: input });
     }
     displaySpecialCharacters(){
         
     }
-    handleHint = (e) => {
+    handleHint = e => {
         if(this.state.articleHint) return this.setState({ articleHint: false });
         if(e.keyCode === 39){
-            this.setState({ articleHint: true });
+            this.setState({ articleHint: true, article: '' });
         }
     }
-    handleNounHint = (e) => {
+    handleNounHint = e => {
         if(this.state.nounHint) return this.setState({ nounHint: false });
         if(e.keyCode === 39){
-            this.setState({ nounHint: true });
+            this.setState({ nounHint: true, value: '' });
         }
     }
     render(){
@@ -55,7 +55,8 @@ class InputNoun extends Component {
                         className={"article-input "+(this.props.correct === "2" ? 'incorrect' : '')+(this.props.correct === "1" ? ' very-correct' : '')}
                         ref={input => this.nameInput = input}
                         type='text'
-                        onChange={this.handleArticle.bind(this)} value={this.state.article} autoFocus={true} />
+                        onChange={this.handleArticle.bind(this)}
+                        value={this.state.article} autoFocus={true} />
 
                     <input disabled={this.props.correct === "2" ? "disabled" : ""} 
                         onKeyDown={this.handleNounHint}
@@ -64,9 +65,9 @@ class InputNoun extends Component {
                         ref={input => this.wordInput = input}
                         type='text'
                         onChange={this.handleChange}
-                        value={this.state.value} autoFocus={false}
-                    /> 
+                        value={this.state.value} autoFocus={false} /> 
                      {/* <input ref={input => this.wordInput = input} type='text' placeholder='noun..' onChange={this.handleChange.bind(this)} value={this.state.value} autoFocus={false} />  */}
+                    {/* className="hide-button" */}
                     <button className="hide-button">Submit</button>
                 </form>
                 {this.displaySpecialCharacters()}

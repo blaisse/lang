@@ -17,14 +17,13 @@ class InputVerb extends Component {
     onSubmit(event){
         event.preventDefault();
         const value = this.state.value.trim();
-        if(value === this.props.picked) this.setState({ value: "", initial: false, correct: true });
+        if(value === this.props.picked) this.setState({ value: '', initial: false, correct: true });
         if(value !== this.props.picked) {
-            this.setState({ value: "", initial: false, correct: false });
+            this.setState({ value: '', initial: false, correct: false, placeholder: '' });
             setTimeout(() => {
                 this.setState(initialState);
             }, 400);
         }
-
         this.props.onAnswerChange(value);  
     }
     handleCharacterClick(id){
@@ -34,12 +33,13 @@ class InputVerb extends Component {
     }
     handleKey(e){
         if(e.keyCode === 39){
-            this.setState({ ...this.state, value: "", placeholder: this.props.picked });
+            if(this.state.placeholder) return this.setState({ placeholder: '' });
+            this.setState({ ...this.state, value: '', placeholder: this.props.picked });
         }
     }
-    handleChange = (event) => {
+    handleChange = event => {
         const input = this.props.handleSpecialCharacters(event.target.value);
-        this.setState({ value: input });
+        this.setState({ value: input, placeholder: '' });
     }
     displayPronoun(){
         if(this.props.pronoun){

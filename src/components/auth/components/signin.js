@@ -49,7 +49,7 @@ class SignIn extends Component {
 function validate(values){
     const errors = {};
 
-    if(!values.email) errors.email = 'Enter an email';
+    if(!values.email) errors.email = 'Enter a username';
     if(!values.password) errors.password = 'Enter a password';
 
     return errors;
