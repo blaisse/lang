@@ -1769,6 +1769,16 @@
     display: flex;
     align-items: center;
 } 
+.signup-link {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    text-decoration: none;
+    color: #000;
+} 
+.signup-link:hover {
+        color: rgb(74, 187, 221);
+    } 
 @-webkit-keyframes moveIn {
     0% {
         opacity: 0;

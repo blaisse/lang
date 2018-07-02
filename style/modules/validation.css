@@ -10,3 +10,13 @@
     display: flex;
     align-items: center;
 }
+.signup-link {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    text-decoration: none;
+    color: #000;
+    &:hover {
+        color: rgb(74, 187, 221);
+    }
+}

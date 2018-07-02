@@ -24,6 +24,7 @@ class Chat extends Component {
         // this.props.fullChatConnected(false);
     }
     componentWillMount(){
+        if(!this.props.auth) this.props.history.push('/signin');
         this.props.setUrl('chat');
         this.props.fullChatNotificationClear();
     }

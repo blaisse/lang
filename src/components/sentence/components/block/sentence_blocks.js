@@ -19,7 +19,7 @@ class SentenceBlocks extends Component {
         document.querySelector('.app').classList.add('bg-noun');
     }
     update = async () => await this.props.setCorrectAndFetch('sentence');
-    render(){ console.log('?', this.props.sentenceBlock);
+    render(){
         if(Object.keys(this.props.sentenceBlock).length === 0) return "";
         return <SentenceContent blocks={this.props.sentenceBlock} answer={this.props.sentenceBlock.slicedFully} update={this.update} />;
     }

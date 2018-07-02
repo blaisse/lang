@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
+// import { Link } from 'react-router-dom';
 import { signinUser, authClean } from './../authActions';
 import { connect } from 'react-redux';
 
@@ -15,7 +16,7 @@ class SignIn extends Component {
             <div className="add-veb-input">
                 <div className="add-verb-input-row signup">
                     <label>{field.label}</label>
-                    <input autoFocus={field.auto} className={classNameInput} type={field.type} autoComplete="off" { ...field.input } />
+                    <input placeholder={field.placeholder} autoFocus={field.auto} className={classNameInput} type={field.type} autoComplete="off" { ...field.input } />
                 </div>
                 <div className={className}>{touched ? error : ''}</div>
             </div>
@@ -36,11 +37,12 @@ class SignIn extends Component {
         return (
             <div className="add-verb-container">
                 <form onSubmit={handleSubmit(this.handleForm.bind(this))}>
-                        <Field auto="true" type="text" label="Username" name="email" component={this.renderField} />
-                        <Field type="password" label="Password" name="password" component={this.renderField} />
+                        <Field auto="true" placeholder="test" type="text" label="Username" name="email" component={this.renderField} />
+                        <Field type="password" placeholder="test" label="Password" name="password" component={this.renderField} />
                         {this.renderError()}
                         <button type="submit">Sign In</button>                      
                 </form>
+                {/* <Link className="signup-link" to="/signup">No account? Sign Up</Link> */}
             </div>
         );
     }

@@ -15,7 +15,7 @@ class SignUp extends Component {
             <div className="add-veb-input">
                 <div className="add-verb-input-row signup">
                     <label>{field.label}</label>
-                    <input className={classNameInput} type={field.type} autoComplete="off" { ...field.input } />
+                    <input autoFocus={field.auto} className={classNameInput} type={field.type} autoComplete="off" { ...field.input } />
                 </div>
                 <div className={className}>{touched ? error : ''}</div>
             </div>
@@ -36,7 +36,7 @@ class SignUp extends Component {
         return (
             <div className="add-verb-container">
                 <form onSubmit={handleSubmit(this.handleForm.bind(this))}>
-                    <Field type="text" label="Username" name="email" component={this.renderField} />
+                    <Field type="text" label="Username" name="email"  auto="true" component={this.renderField} />
                     <Field type="password" label="Password" name="password" component={this.renderField} />
                     <Field type="password" label="Re password" name="repassword" component={this.renderField} />
                     {this.renderError()}
