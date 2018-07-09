@@ -7,7 +7,8 @@ export default function() {
         french: [
             "simple",
             "passe_compose",
-            "Imparfait"
+            "Imparfait",
+            "Futur"
         ]
     };
 }

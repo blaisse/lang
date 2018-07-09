@@ -18,14 +18,14 @@ class CorrectVerb extends Component {
     state = { pronoun: null, picked: null, character: null };
     async componentWillMount(){
         await this.props.fetchVerb();
-        if(this.props.verb){
+        if(this.props.verb.verb){
             this.randomPronoun();
         }
     }
     async componentWillReceiveProps(nextProps){
         if(nextProps.selectedTenses !== this.props.selectedTenses){
             await this.props.fetchVerb();
-            if(this.props.verb){
+            if(this.props.verb.verb){
                 this.randomPronoun();
             }
         }
