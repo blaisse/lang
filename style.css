@@ -1092,9 +1092,9 @@
     color: #c7c7c7;
 } 
 .add-verb-container {
-    display: flex;
-    align-items: center; 
-    flex-direction: column; 
+    /* display: flex; */
+    /* align-items: center;  */
+    /* flex-direction: column;  */
     padding-bottom: 70px;
 } 
 @media (max-width: 530px){ 
@@ -1167,6 +1167,36 @@
 .input-error-text {
     margin-top: 5px;
     color: lightcoral;
+} 
+.add-verb-scrap {
+    display: flex;
+    flex-direction: column;
+} 
+.add-verb-scrap-input {
+    padding: 10px;
+} 
+.add-verb-scrap-message {
+    min-height: 40px;
+    text-align: center;
+} 
+/* .add-verb-scrap-error {
+    text-align: center;
+} */ 
+.add-verb-scrap-button {
+    margin-bottom: 10px;
+} 
+.add-manual {
+    margin-bottom: 10px;
+    text-align: center;
+} 
+.add-manual:hover {
+        color: lightcoral;
+    } 
+.scrap-loader {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    min-height: 90px;
 } 
 .chat-container {
     /* flex: 0.5; */
