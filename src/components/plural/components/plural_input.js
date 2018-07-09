@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import SpecialCharacters from './../../special_characters';
 
 class PluralInput extends Component {
@@ -8,6 +7,7 @@ class PluralInput extends Component {
         this.state = { value: "", correct: false, incorrect: false, placeholder: "" };
         this.full = "";
     }
+    //this.props.lang is passed by SpecialCharacters
     componentWillMount(){
         //This needs to be changed
         if(this.props.lang === 'french'){
@@ -68,8 +68,7 @@ class PluralInput extends Component {
                         placeholder={this.state.placeholder}
                         onKeyDown={this.handleKeys.bind(this)}
                         onChange={this.handleChange}
-                        autoFocus={true}
-                    />
+                        autoFocus={true} />
                 </form>
                 <SpecialCharacters handleClick={this.handleCharacterClick.bind(this)} />
             </div>
@@ -77,12 +76,4 @@ class PluralInput extends Component {
     }
 }
 
-function mapStateToProps(state){
-    return {
-        plural: state.plural,
-        lang: state.lang,
-        auth: state.auth.authenticated
-    };
-}
-
-export default connect(mapStateToProps)(PluralInput);
+export default PluralInput;

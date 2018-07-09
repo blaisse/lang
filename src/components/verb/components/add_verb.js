@@ -2,16 +2,18 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { selectLanguage } from './../../settings/languages/languagesActions';
-import { createVerb, fetchWord, patchVerb } from './../verbActions';
+import { createVerb, fetchWord, patchVerb, scrapVerb, clearScrapMessage } from './../verbActions';
 import SpecialCharacters from './../../special_characters';
  
 class AddVerb extends Component {
     state = { 
         sameTense: false,
         tense: "",
-        language: 'german'
+        language: 'german',
+        showManual: false,
+        scrapInput: '',
+        scrapError: false
     };
-   
     renderField(field){
         const { meta: { touched, error } } = field;//field.meta.touched and field.meta.error
         const className = `input-error-container ${touched && error ? 'input-error-text' : ''}`;
@@ -25,6 +27,12 @@ class AddVerb extends Component {
                 <div className={className}>{touched ? error : ''}</div> 
             </div>
         );
+    }
+    componentWillUnmount(){
+        this.props.clearScrapMessage();
+    }
+    componentWillReceiveProps(nextProps){
+        if(nextProps.verb) this.setState({ scrapInput: '' });
     }
     onSubmit(values){
         //values are in a different format than needed to be in DB
@@ -53,7 +61,6 @@ class AddVerb extends Component {
         };
         this.setState({ sameTense: false, tense: db_obj.tenses[0].tense });
         this.props.fetchWord(db_obj.word).then((ret) => {
-            // console.log('fetched', ret.payload.data);
             if(ret.payload.data === ""){
                 //there is no such word, create a new one
                 this.props.createVerb(db_obj).then(() => {
@@ -82,13 +89,9 @@ class AddVerb extends Component {
     }
     renderLanguage(){
         if(this.props.lang === 'german' || this.props.lang === null){
-            return (
-                <div className="add-verb-click">French</div>
-            );
+            return <div className="add-verb-click">French</div>;
         } else {
-            return (
-                <div className="add-verb-click">German</div>
-            );
+            return <div className="add-verb-click">German</div>;
         }
     }
     handleLanguage(){
@@ -132,21 +135,11 @@ class AddVerb extends Component {
             this.props.change("word", "");
         }, 1);
     }
-    render(){
-        const { handleSubmit } = this.props;
-        // let p;
-        // if(this.props.lang === 'german' || this.props.lang === null){
-        //     p = ['Ich', 'Du', 'Er, sie, es', 'Wir', 'Ihr', 'Sie, sie'];
-        // } else if(this.props.lang === 'french'){
-        //     p = ['Je', 'Tu', 'Il, elle', 'Nous', 'Vous', 'Ils, elles'];
-        // }
-        const p = this.props.pronouns[this.props.lang];
-        return (
-            <div className="add-verb-container">
-                <div className="add-verb-language" onClick={this.handleLanguage.bind(this)}>
-                    Edit different language:
-                    {this.renderLanguage()}
-                </div>
+    displayForm(){
+        if(this.state.showManual || this.props.lang === 'german'){
+            const { handleSubmit } = this.props;
+            const p = this.props.pronouns[this.props.lang];
+            return (
                 <form onSubmit={handleSubmit(this.onSubmit.bind(this))} autoComplete="off">
                     <Field ref={input => this.word = input} paste={this.handlePaste} normalize={this.props.handleSpecialCharacters.bind(this)} label="Verb" name="word" component={this.renderField} />
                     <Field label="Meaning" name="meaning" component={this.renderField} />
@@ -168,6 +161,83 @@ class AddVerb extends Component {
 
                     <button type="submit">Save</button>
                 </form>
+            );
+        }
+    }
+    showManual = () => {
+        this.setState({ showManual: !this.state.showManual });
+    }
+    changeScrapInput = e => {
+        this.setState({ scrapInput: e.target.value });
+    }
+    submitScrap = (e) => {
+        e.preventDefault();
+        if(this.state.scrapInput.length < 3) this.setState({ scrapError: true, scrapInput: '' });
+        else this.props.scrapVerb(this.state.scrapInput.trim());
+    }
+    displayMessage(){
+        if(this.props.verb.scrapMessage && this.props.lang !== 'german') return <p>{this.props.verb.scrapMessage}</p>;
+    }
+    clearFocus = () => {
+        if(this.props.verb.scrapMessage) this.props.clearScrapMessage();
+        this.setState({ scrapError: false })
+    }
+    displayScraper(){
+        if(this.props.verb.loading) return <div className="scrap-loader">Processing..</div>;
+        if(this.props.lang !== 'german'){
+            return (
+                <form onSubmit={this.submitScrap} className="add-verb-scrap">
+                    <input 
+                        className="add-verb-scrap-input"
+                        placeholder='French infinitive'
+                        onFocus={this.clearFocus} 
+                        key='1' type='text' 
+                        value={this.state.scrapInput} 
+                        onChange={this.changeScrapInput} />
+                    <button
+                        key='2' 
+                        // onClick={this.submitScrap}
+                        className="add-verb-scrap-button">
+                        Scrap</button>
+                </form> 
+            );
+        }
+        return 'Scraping is enabled only for French verbs';
+    }
+
+    render(){
+        // let p;
+        // if(this.props.lang === 'german' || this.props.lang === null){
+        //     p = ['Ich', 'Du', 'Er, sie, es', 'Wir', 'Ihr', 'Sie, sie'];
+        // } else if(this.props.lang === 'french'){
+        //     p = ['Je', 'Tu', 'Il, elle', 'Nous', 'Vous', 'Ils, elles'];
+        // }
+        return ( 
+            <div className="add-verb-container">
+                <div className="add-verb-language" onClick={this.handleLanguage.bind(this)}>
+                    Edit different language:
+                    {this.renderLanguage()}
+                </div>
+                <div className="add-verb-scrap-message">{this.displayMessage()}</div>
+                {this.displayScraper()}
+                {/* {(this.props.lang === 'german' ?  'Scraping is enabled only for French verbs' : 
+                    <form onSubmit={this.submitScrap} className="add-verb-scrap">
+                        <input 
+                            className="add-verb-scrap-input"
+                            onFocus={this.clearFocus} 
+                            key='1' type='text' 
+                            value={this.state.scrapInput} 
+                            onChange={this.changeScrapInput} />
+                        <button
+                            key='2' 
+                            // onClick={this.submitScrap}
+                            className="add-verb-scrap-button">
+                            Scrap</button>
+                    </form>
+                )} */}
+                <div className="add-verb-scrap-message">{(this.state.scrapError ? 'Enter at least 3 characters' : null)}</div>
+                {this.props.lang === 'german' ? null : <div className="add-manual" onClick={this.showManual}>{(this.state.showManual ? 'Hide form' : 'Add manually')}</div>}
+                {this.displayForm()}
                 <SpecialCharacters handleClick={this.handleNothing} />
             </div>
         );
@@ -177,7 +247,8 @@ class AddVerb extends Component {
 function mapStateToProps(state){
     return {
         pronouns: state.data.pronouns.subject,
-        lang: state.lang
+        lang: state.lang,
+        verb: state.verb
     };
 }
 
@@ -204,5 +275,5 @@ export default reduxForm({
     validate,
     form: 'PostVerb'
 })(
-    connect(mapStateToProps, { createVerb, fetchWord, patchVerb, selectLanguage })(AddVerb)
+    connect(mapStateToProps, { createVerb, fetchWord, patchVerb, selectLanguage, scrapVerb, clearScrapMessage })(AddVerb)
 );

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import SpecialCharacters from './../../special_characters';
 
 class InputNoun extends Component {
@@ -61,7 +60,7 @@ class InputNoun extends Component {
                     <input disabled={this.props.correct === "2" ? "disabled" : ""} 
                         onKeyDown={this.handleNounHint}
                         placeholder={this.state.nounHint ? this.props.noun : 'noun'}
-                        className={(this.props.correct === "2" ? 'incorrect' : '')+(this.props.correct === "1" ? ' very-correct' : '')}
+                        className={"noun-input "+(this.props.correct === "2" ? 'incorrect' : '')+(this.props.correct === "1" ? ' very-correct' : '')}
                         ref={input => this.wordInput = input}
                         type='text'
                         onChange={this.handleChange}
@@ -76,10 +75,5 @@ class InputNoun extends Component {
         );
     }
 }
-function mapStateToProps(state){
-    return {
-        lang: state.lang
-    };
-}
 
-export default connect(mapStateToProps)(InputNoun);
+export default InputNoun;

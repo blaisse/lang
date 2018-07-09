@@ -42,7 +42,7 @@ class CorrectVerb extends Component {
         const pronouns = this.props.pronouns['french'];//this.props.lang
         const rand = Math.floor(Math.random()*pronouns.length);
         let pronoun = pronouns[rand];
-        const picked = this.props.verb.tenses[0].conjugation[pronoun.word];//Doesn't work for German
+        const picked = this.props.verb.verb.tenses[0].conjugation[pronoun.word];//Doesn't work for German
         if(this.props.lang === 'german') pronoun = this.props.pronouns['german'][rand];
         this.setState({ pronoun, picked });
     }
@@ -75,14 +75,15 @@ class CorrectVerb extends Component {
     }
     render(){
         const Composed = HandleSpecial(InputVerb);
-        if(!this.props.verb) return <div className="loader"></div>;
+        if(!this.props.verb.verb) return <div className="loader"></div>;
+        const { verb } = this.props.verb;
         return (
             <div className="card-container bg-verb">
                 <div className="card-change"><ChangeTense /></div>
                 <div className="card-content">
-                    <p className="verb-tense">{this.props.verb.tenses[0].tense}</p>
+                    <p className="verb-tense">{verb.tenses[0].tense}</p>
                     <span className="refresh-icon" onClick={this.handleRefresh}><i className="fal fa-redo"></i></span>
-                    <span className="verb-inner-meaning">{this.props.verb.meaning}</span>
+                    <span className="verb-inner-meaning">{verb.meaning}</span>
                     <div className={"input-field"}>
                         <Composed 
                             // character={this.state.character} 

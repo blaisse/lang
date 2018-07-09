@@ -29,7 +29,6 @@ class FlashcardShow extends Component {
         }
     }
     render(){
-        // console.log(this.props.cards);
         return (
             <div className="user-flashcard-list bg-verb">
                 {this.handleLoad()}

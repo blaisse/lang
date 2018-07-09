@@ -59,7 +59,7 @@ class App extends Component {
   }
   render() {
     return (
-      <BrowserRouter> 
+      <BrowserRouter basename={process.env.PUBLIC_URL}> 
         <div tabIndex="0" className="app" onKeyDown={this.handleKey} onLoad={this.focusDiv}>
           <Menu />
           <Notifications />

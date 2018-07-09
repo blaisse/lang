@@ -10,10 +10,10 @@ class DisplayNoun extends Component {
         this.props.fetchNoun();
     }
     componentDidMount(){
-        document.querySelector('.app').classList.add('bg-noun');
+        // document.querySelector('.app').classList.add('bg-noun');
     }
     componentWillUnmount(){
-        document.querySelector('.app').classList.remove('bg-noun');
+        // document.querySelector('.app').classList.remove('bg-noun');
         this.props.resetNoun();
     }
     handleNoun = (article, word) => {

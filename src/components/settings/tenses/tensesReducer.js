@@ -6,7 +6,8 @@ export default function() {
         ],
         french: [
             "simple",
-            "passe_compose"
+            "passe_compose",
+            "Imparfait"
         ]
     };
 }

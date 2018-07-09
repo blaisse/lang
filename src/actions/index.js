@@ -50,10 +50,12 @@ export const setCorrectAndFetch = type => async (dispatch, getState) => {
     const user = localStorage.getItem('username');
     if(user){
         let correct;
-        if(type === 'verb' || type === 'noun' || type === 'plural'){
-            correct = getState()[type].word;
+        if(type === 'verb'){//|| type === 'noun' || type === 'plural'
+            correct = getState()[type][type].word;
         } else if(type === 'sentence'){
             correct = getState().sentenceBlock.id;
+        } else {
+            correct = getState()[type].word;
         }
         await axios.post(`${ROOT_URL}/setlastcorrect/${type}/${correct}`, {},  {
             headers: { authorization: localStorage.getItem('token') }

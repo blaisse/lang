@@ -46,9 +46,9 @@ class Plural extends Component {
     } 
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     return {
-        plural: state.plural,
+        plural: state.plural
     };
 }
 

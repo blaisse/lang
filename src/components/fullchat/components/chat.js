@@ -9,9 +9,7 @@ import io from 'socket.io-client';
 class Chat extends Component {
     constructor(props){
         super(props);
-        // this.socket = io('http://localhost:3007');
-        // this.socket = io('https://francais-api.azurewebsites.net');
-        this.socket = io('https://safe-badlands-67690.herokuapp.com'); 
+        this.socket = io(process.env.REACT_APP_URL);
         this.channel = 'general';
     }
     componentWillUnmount(){
