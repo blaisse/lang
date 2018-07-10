@@ -1108,6 +1108,7 @@
 }
     } 
 .add-verb-click:hover {
+    cursor: pointer;
     color: #ff9e9e;
 } 
 .add-verb-language {
@@ -1185,12 +1186,16 @@
 .add-verb-scrap-button {
     margin-bottom: 10px;
 } 
+.add-verb-scrap-button:hover {
+        color: lightsteelblue;
+    } 
 .add-manual {
+    cursor: pointer;
     margin-bottom: 10px;
     text-align: center;
 } 
 .add-manual:hover {
-        color: lightcoral;
+        color: lightsteelblue;
     } 
 .scrap-loader {
     display: flex; 
