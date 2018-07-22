@@ -26,6 +26,8 @@ import PrivateMessagesReducer from '../components/fullchat/privateMessagesReduce
 import GlobalMessagesReducer from '../components/fullchat/globalMessagesReducer';
 import UserListReducer from '../components/fullchat/userListReducer';
 
+import MatchSetReducer from '../components/match/matchReducer';
+
 import DataReducer from './data_reducer';
 
 const rootReducer = combineReducers({
@@ -44,6 +46,7 @@ const rootReducer = combineReducers({
   chat: chatReducer,
   plural: pluralReducer,
   sentenceBlock,
+  match: MatchSetReducer,
   url: UrlReducer,
   privateMessages: PrivateMessagesReducer,
   userList: UserListReducer,

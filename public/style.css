@@ -1092,10 +1092,11 @@
     color: #c7c7c7;
 } 
 .add-verb-container {
-    /* display: flex; */
-    /* align-items: center;  */
-    /* flex-direction: column;  */
-    padding-bottom: 70px;
+    display: flex;
+    align-items: center; 
+    flex-direction: column; 
+    /* padding-bottom: 70px; */
+    flex: 1;
 } 
 @media (max-width: 530px){ 
 .add-verb-container {
@@ -1108,6 +1109,7 @@
 }
     } 
 .add-verb-click:hover {
+    cursor: pointer;
     color: #ff9e9e;
 } 
 .add-verb-language {
@@ -1185,12 +1187,16 @@
 .add-verb-scrap-button {
     margin-bottom: 10px;
 } 
+.add-verb-scrap-button:hover {
+        color: lightsteelblue;
+    } 
 .add-manual {
+    cursor: pointer;
     margin-bottom: 10px;
     text-align: center;
 } 
 .add-manual:hover {
-        color: lightcoral;
+        color: lightsteelblue;
     } 
 .scrap-loader {
     display: flex; 
@@ -1809,6 +1815,15 @@
 .signup-link:hover {
         color: rgb(74, 187, 221);
     } 
+.match-draggable-item {
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+            border: 1px solid black;
+        } 
+.match-draggable-item-dragged {
+                color: lightblue;
+            } 
 @-webkit-keyframes moveIn {
     0% {
         opacity: 0;

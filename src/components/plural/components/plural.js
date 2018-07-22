@@ -23,10 +23,13 @@ class Plural extends Component {
             return (
                 <div className="card-content">
                     <div className="plural-header">
-                        <div className="plural-noun">{noun.article} {noun.word}</div>
+                        <div className="plural-noun">{noun.indefinite} {noun.word}</div>
                         <div>{noun.meaning}</div>
                     </div>
-                    <Composed handleCorrect={this.handleCorrect.bind(this)} correct={this.props.plural.plural} />
+                    <Composed 
+                        handleCorrect={this.handleCorrect.bind(this)} 
+                        // article={noun.indefinite}
+                        correct={this.props.plural.plural} />
                     <div className="hint-plural">Press the right keyboard arrow to see the answer</div>
                 </div>
             );

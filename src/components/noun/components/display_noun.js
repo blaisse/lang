@@ -10,14 +10,14 @@ class DisplayNoun extends Component {
         this.props.fetchNoun();
     }
     componentDidMount(){
-        // document.querySelector('.app').classList.add('bg-noun');
+        document.querySelector('.app').classList.add('bg-noun');
     }
     componentWillUnmount(){
-        // document.querySelector('.app').classList.remove('bg-noun');
+        document.querySelector('.app').classList.remove('bg-noun');
         this.props.resetNoun();
     }
     handleNoun = (article, word) => {
-        if(word.trim() === this.props.noun.word && article.trim() === this.props.noun.article){
+        if(word.trim() === this.props.noun.word && article.trim() === this.props.noun.indefinite){//this.props.noun.article
             this.setState({ correct: "1" });
             setTimeout(() => {
                 this.props.setCorrectAndFetch('noun');
@@ -43,7 +43,7 @@ class DisplayNoun extends Component {
                     <Compund 
                         sendInput={this.handleNoun} 
                         correct={this.state.correct} 
-                        article={this.props.noun.article} 
+                        article={this.props.noun.indefinite} 
                         noun={this.props.noun.word} />
                     <div className="hint-plural">Press the right keyboard arrow to see the answer</div>
                 </div>

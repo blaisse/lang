@@ -1,8 +1,9 @@
 .add-verb-container {
-    /* display: flex; */
-    /* align-items: center;  */
-    /* flex-direction: column;  */
-    padding-bottom: 70px;
+    display: flex;
+    align-items: center; 
+    flex-direction: column; 
+    /* padding-bottom: 70px; */
+    flex: 1;
     @mixin atSmall {
         display: block;
     }
@@ -11,6 +12,7 @@
     }
 }
 .add-verb-click:hover {
+    cursor: pointer;
     color: #ff9e9e;
 }
 .add-verb-language {
@@ -88,12 +90,16 @@
 } */
 .add-verb-scrap-button {
     margin-bottom: 10px;
+    &:hover {
+        color: lightsteelblue;
+    }
 }
 .add-manual {
+    cursor: pointer;
     margin-bottom: 10px;
     text-align: center;
     &:hover {
-        color: lightcoral;
+        color: lightsteelblue;
     }
 }
 .scrap-loader {

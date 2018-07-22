@@ -23,6 +23,9 @@ class InputNoun extends Component {
         event.preventDefault();
         this.props.sendInput(this.state.article.trim(), this.state.value.trim(), this.nameInput);
         this.nameInput.focus();
+        // const updatedState = {};
+        // if(this.props.article !== this.state.article.trim()) updatedState.article = '';
+        // if(this.props.article !== this.state.article.trim() && this.props.correct !== this.state.value.trim()) 
         this.setState({ value: "", article: "" });
     }
     handleChange = event => {

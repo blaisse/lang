@@ -32,6 +32,8 @@ import FlashcardContainer from './components/flashcardUser/create/flashcard_cont
 import FlashcardShow from './components/flashcardUser/display/flashcard_show';
 import FlashcardShowOne from './components/flashcardUser/display/flashcard_show_one';
 
+import MatchContainer from './components/match/components/matchContainer';
+
 
 import Panel from './components/panel/Panel';
 // import Tutorial from './components/tutorial/tutorial';
@@ -83,6 +85,7 @@ class App extends Component {
               <Route exact path="/chat" component={ChatFull} />
               <Route exact path="/addsentence" component={HandleSpecial(RequireAuth(AddSentence))} />
               <Route exact path="/panel" component={RequireAuth(Panel)} />
+              <Route exact path="/match" component={MatchContainer} />
               {/* <Route exact path="/write" component={RequireAuth(Tutorial)} /> */}
             </Switch>
           </div>

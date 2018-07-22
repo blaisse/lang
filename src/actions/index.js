@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const FETCH_VERB = 'fetch_verb';
-export const RESET_VERB = 'reset_verb';
+export const RESET_VERB = 'reset_verb'; 
 export const PUSH_CONTENT = 'push_content';
 export const FETCH_NOUN = 'fetch_noun';
 export const RESET_NOUN = 'reset_noun';
@@ -158,7 +158,6 @@ export function clearFlashcardSet(){
     };
 }
 export function fetchUserFlashcards(user){
-    // console.log('u', user);
     return function(dispatch){
         axios.get(`${ROOT_URL}/getcard/${user}`, {
             headers: { authorization: localStorage.getItem('token') }

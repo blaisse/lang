@@ -168,7 +168,7 @@ class AddVerb extends Component {
         this.setState({ showManual: !this.state.showManual });
     }
     changeScrapInput = e => {
-        this.setState({ scrapInput: e.target.value });
+        this.setState({ scrapInput: this.props.handleSpecialCharacters(e.target.value) });
     }
     submitScrap = (e) => {
         e.preventDefault();
@@ -214,6 +214,7 @@ class AddVerb extends Component {
         // }
         return ( 
             <div className="add-verb-container">
+            <div className="add-verb-inner">
                 <div className="add-verb-language" onClick={this.handleLanguage.bind(this)}>
                     Edit different language:
                     {this.renderLanguage()}
@@ -239,6 +240,7 @@ class AddVerb extends Component {
                 {this.props.lang === 'german' ? null : <div className="add-manual" onClick={this.showManual}>{(this.state.showManual ? 'Hide form' : 'Add manually')}</div>}
                 {this.displayForm()}
                 <SpecialCharacters handleClick={this.handleNothing} />
+                </div>
             </div>
         );
     }

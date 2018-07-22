@@ -60,7 +60,7 @@ class FlashcardContainer extends Component {
         if(this.state.error) return <div className="flashcard-add-error">Provide a title</div>;
     }
     handleSave(){
-        if(!this.title) return this.setState({ error: true });
+        if(!this.title) return this.setState({ error: true }); 
         const cards = this.state.cards;
         const keys = Object.keys(cards);
 

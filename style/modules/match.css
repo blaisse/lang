@@ -1,0 +1,14 @@
+.match {
+    &-draggable {
+        &-item {
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+            border: 1px solid black;
+
+            &-dragged {
+                color: lightblue;
+            }
+        }
+    } 
+}

@@ -1,5 +1,21 @@
 export default () => {
     return {
+        articles: {
+            definite: {
+                french: [
+                    { article: 'le', gender: 'masculine' },
+                    { article: 'la', gender: 'feminine' }
+                ],
+                german: []
+            },
+            indefinite: {
+                french: [
+                    { article: 'un', gender: 'masculine' },
+                    { article: 'une', gender: 'feminine' }
+                ],
+                german: []
+            }
+        },
         pronouns: {
             subject: {
                 // french: ['je', 'tu', 'il', 'elle', 'on', 'nous', 'vous', 'ils', 'elles'],

@@ -21,6 +21,7 @@
 @import 'modules/tutorial.css';
 @import 'modules/user_flashcards';
 @import 'modules/validation';
+@import 'modules/match';
 
 @import 'modules/animations/global';
 @import 'modules/loaders/loader';
